@@ -1,18 +1,23 @@
 import React from 'react';
 import './AddNote.css';
 
-const NoteField = ({show, setShow}) => {
+const NoteField = ({addNote, handleInputNote, setAddNote}) => {
+    
 
     return (
         <div>
             <div className='add-container'>
                 <h1>Add Note</h1>
-                <textarea name="" id="my-text" cols="30" rows="10" placeholder='write something here'></textarea>
+                <textarea 
+                type='text'
+                cols="30" rows="10"
+                value={addNote}
+                placeholder='write something here'
+                onChange={(e)=>setAddNote(e.target.value)}
+                ></textarea>
                 <br />
-                <button className='add-note'>add note</button>
+                <button onClick={handleInputNote} className='add-note'>add note</button>
             </div>
-        
-
         </div>
     );
 };
