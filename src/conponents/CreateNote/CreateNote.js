@@ -17,7 +17,7 @@ const CreateNote = () => {
         <div>
             <div>
                 <h1>Create notes</h1>
-                <button onClick={handleCreate} className='createBtn'>Create <sup>+</sup></button>
+                {show && show ? "" : <button onClick={handleCreate} className='createBtn'>Create <sup>+</sup></button>}
                 {show && show ? <button onClick={handleClose} className='createBtn'>Close</button>: ''}
             </div>
             {show && show ? <AddNote show={show} setShow={setShow} /> : ''}
