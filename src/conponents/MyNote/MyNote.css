@@ -1,0 +1,35 @@
+.my-container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mynote {
+  width: 250px;
+  height: 150px;
+  border: #533192;
+  border-radius: 8px;
+  padding: 5px;
+  background-color: #533192;
+  color: #fff;
+}
+
+.noteBtn {
+  padding: 10px;
+  background-color: #533192;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.noteBtn:hover {
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #533192;
+}

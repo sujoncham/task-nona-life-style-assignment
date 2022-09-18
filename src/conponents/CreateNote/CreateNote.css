@@ -5,8 +5,10 @@
   border-radius: 8px;
   transition: all 0.3s;
   cursor: pointer;
+  color: #fff;
 }
 .createBtn:hover {
   background-color: #fff;
   border: 1px solid #533192;
+  color: #533192;
 }
