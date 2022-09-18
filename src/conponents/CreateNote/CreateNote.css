@@ -1,7 +1,7 @@
 .createBtn {
   background-color: #533192;
   padding: 8px 16px;
-  border: none;
+  border: 1px solid #533192;
   border-radius: 8px;
   transition: all 0.3s;
   cursor: pointer;

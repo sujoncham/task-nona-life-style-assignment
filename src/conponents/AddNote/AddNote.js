@@ -1,8 +1,8 @@
 import React from 'react';
-import MyNote from '../MyNote/MyNote';
 import './AddNote.css';
 
-const NoteField = () => {
+const NoteField = ({show, setShow}) => {
+
     return (
         <div>
             <div className='add-container'>
@@ -11,7 +11,8 @@ const NoteField = () => {
                 <br />
                 <button className='add-note'>add note</button>
             </div>
-            <MyNote />
+        
+
         </div>
     );
 };
