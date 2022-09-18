@@ -7,9 +7,10 @@ const NoteField = ({addNote, handleInputNote, setAddNote}) => {
     return (
         <div>
             <div className='add-container'>
-                <h1>Add Note</h1>
+               
                 <textarea 
                 type='text'
+                className='add-text'
                 cols="30" rows="10"
                 value={addNote}
                 placeholder='write something here'

@@ -1,10 +1,9 @@
 import React from 'react';
 import './SearchField.css';
-const SearchField = () => {
+const SearchField = ({handleSearch}) => {
     return (
         <div>
-            <input type="text" className='padd-class' placeholder='search something' />
-            <button className='searchBtn padd-class'>search</button>
+            <input onChange={handleSearch} type="text" className='padd-class' placeholder='search something' />
         </div>
     );
 };

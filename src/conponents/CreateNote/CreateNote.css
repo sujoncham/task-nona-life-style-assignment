@@ -12,3 +12,18 @@
   border: 1px solid #533192;
   color: #533192;
 }
+
+.create-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.main-container {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

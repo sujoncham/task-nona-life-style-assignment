@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AddNote from '../AddNote/AddNote';
 import MyNote from '../MyNote/MyNote';
+import SearchField from '../SearchField/SearchField';
 import './CreateNote.css';
 
 const getLocalNotes = ()=>{
@@ -17,13 +18,14 @@ const CreateNote = () => {
     const [show, setShow] = useState(false);
     const [addNote, setAddNote] = useState('');
     const [notes, setNotes] = useState(getLocalNotes());
+    const [searchNote, setSearchNote] = useState([])
 
     const handleInputNote = () =>{
         if(!addNote){
             console.log('data dont get');
         } else{
             setNotes([...notes, addNote]);
-            setAddNote('')
+            setAddNote('');
         }
        
     }
@@ -35,19 +37,34 @@ const CreateNote = () => {
         setShow(false);
     }
 
+    const handleSearch = text =>{
+        const filtered = notes.filter(note => note.includes(text));
+        setSearchNote(filtered);
+    }
+
     useEffect(()=>{
         localStorage.setItem('lists', JSON.stringify(notes));
-    }, [notes])
+        setSearchNote(notes)
+    }, [notes, searchNote])
 
     return (
-        <div>
+        <div className='main-container'>
             <div>
-                <h1>Create notes</h1>
-                {show && show ? "" : <button onClick={handleCreate} className='createBtn'>Create <sup>+</sup></button>}
-                {show && show ? <button onClick={handleClose} className='createBtn'>Close</button>: ''}
+                <SearchField handleSearch={handleSearch} />
+
+                <div className='create-note'>
+                    <h1>Create notes</h1>
+                    <div>
+                        {show && show ? "" : <button onClick={handleCreate} className='createBtn'>Create <sup>+</sup></button>}
+                        {show && show ? <button onClick={handleClose} className='createBtn'>Close</button>: ''}
+                    </div>
+                </div>
+
+                {show && show ? <AddNote handleInputNote={handleInputNote} addNote={addNote} setAddNote={setAddNote} /> : ''}
+                
+                <MyNote setNotes={setNotes} searchNote={searchNote} notes={notes} />
+
             </div>
-            {show && show ? <AddNote handleInputNote={handleInputNote} addNote={addNote} setAddNote={setAddNote} /> : ''}
-            <MyNote notes={notes} show={show} />
         </div>
     );
 };
