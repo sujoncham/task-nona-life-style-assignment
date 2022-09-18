@@ -1,9 +1,13 @@
 import './App.css';
+import CreateNote from './conponents/CreateNote/CreateNote';
+import SearchField from './conponents/SearchField/SearchField';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world!</h1>
+      <h1>Search Note!</h1>
+      <SearchField />
+      <CreateNote />
     </div>
   );
 }

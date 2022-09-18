@@ -1,0 +1,18 @@
+.add-note {
+  background-color: #533192;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.add-note:hover {
+  background-color: #fff;
+  border: 1px solid #533192;
+}
+
+#my-text {
+  border: 1px solid #533192;
+  border-radius: 8px;
+}

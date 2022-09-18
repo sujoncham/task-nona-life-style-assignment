@@ -1,0 +1,9 @@
+.padd-class {
+  padding: 10px;
+  border: 1px solid #533192;
+  border-radius: 8px;
+}
+
+.searchBtn {
+  cursor: pointer;
+}
