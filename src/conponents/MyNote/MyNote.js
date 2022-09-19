@@ -1,7 +1,7 @@
 import React from 'react';
 import './MyNote.css';
 
-const MyNote = ({searchNote, notes, setNotes}) => {
+const MyNote = ({ notes, setNotes, removeAll, editNote}) => {
 
     const handleDelete = (id)=>{
         const delNote = notes.filter((note, index)=>index !== id);
@@ -10,15 +10,16 @@ const MyNote = ({searchNote, notes, setNotes}) => {
 
     return (
         <div className='my-container'>
-            <h1>My Notes: {notes.length}</h1>
+            <h1>My Notes: {} <button className='clearBtn' onClick={removeAll}>Clear notes</button></h1>
             <div className='notes'>
-                { searchNote && searchNote.map((note, index)=> <div className='mynote' key={index}>
+                { notes && notes.map((note, index)=> <div className='mynote' index={index} note={note}>
                     <p>{note}</p>
                     <div>
-                        <button className='noteBtn'>edit</button>
+                        <button onClick={()=>editNote(index)} className='noteBtn'>edit</button>
                         <button onClick={()=>handleDelete(index)} className='noteBtn'>del</button>
                     </div>
                 </div> ) }
+                
        
             </div>
             

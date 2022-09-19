@@ -18,11 +18,12 @@ const CreateNote = () => {
     const [show, setShow] = useState(false);
     const [addNote, setAddNote] = useState('');
     const [notes, setNotes] = useState(getLocalNotes());
-    const [searchNote, setSearchNote] = useState([])
+  
 
     const handleInputNote = () =>{
         if(!addNote){
-            console.log('data dont get');
+            alert('Please, Add note');
+            return;
         } else{
             setNotes([...notes, addNote]);
             setAddNote('');
@@ -37,20 +38,30 @@ const CreateNote = () => {
         setShow(false);
     }
 
-    const handleSearch = text =>{
-        const filtered = notes.filter(note => note.includes(text));
-        setSearchNote(filtered);
+    // const handleSearch = text =>{
+    //     const filtered = notes.filter(note => note.includes(text));
+    //     setSearchNote(filtered);
+    // }
+
+    const editNote = id => {
+        const newNote = notes.find((elem, index) => index === id);
+        setNotes(newNote);
     }
+
 
     useEffect(()=>{
         localStorage.setItem('lists', JSON.stringify(notes));
-        setSearchNote(notes)
-    }, [notes, searchNote])
+        // setSearchNote(notes);
+    }, [notes]);
+
+    const removeAll = () =>{
+        setNotes([]);
+    }
 
     return (
         <div className='main-container'>
             <div>
-                <SearchField handleSearch={handleSearch} />
+                <SearchField />
 
                 <div className='create-note'>
                     <h1>Create notes</h1>
@@ -62,7 +73,7 @@ const CreateNote = () => {
 
                 {show && show ? <AddNote handleInputNote={handleInputNote} addNote={addNote} setAddNote={setAddNote} /> : ''}
                 
-                <MyNote setNotes={setNotes} searchNote={searchNote} notes={notes} />
+                <MyNote editNote={editNote} setNotes={setNotes}  notes={notes} removeAll={removeAll} />
 
             </div>
         </div>
