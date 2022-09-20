@@ -10,11 +10,14 @@ const MyNote = ({ notes, setNotes, removeAll, editNote}) => {
 
     return (
         <div className='my-container'>
-            <h1>My Notes: {} <button className='clearBtn' onClick={removeAll}>Clear notes</button></h1>
+            <div className='note-header'> 
+                <span className='my-text'>My Notes: {notes.length}</span> 
+                <button className='clearBtn' onClick={removeAll}>Clear notes</button>
+            </div>
             <div className='notes'>
-                { notes && notes.map((note, index)=> <div className='mynote' index={index} note={note}>
+                { notes && notes.map((note, index)=> <div className='mynote' key={index} note={note}>
                     <p>{note}</p>
-                    <div>
+                    <div className='buttonGap'>
                         <button onClick={()=>editNote(index)} className='noteBtn'>edit</button>
                         <button onClick={()=>handleDelete(index)} className='noteBtn'>del</button>
                     </div>

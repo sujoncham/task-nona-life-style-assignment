@@ -22,7 +22,7 @@ const CreateNote = () => {
 
     const handleInputNote = () =>{
         if(!addNote){
-            alert('Please, Add note');
+            alert('please, note add');
             return;
         } else{
             setNotes([...notes, addNote]);
@@ -38,25 +38,17 @@ const CreateNote = () => {
         setShow(false);
     }
 
-    // const handleSearch = text =>{
-    //     const filtered = notes.filter(note => note.includes(text));
-    //     setSearchNote(filtered);
-    // }
 
-    const editNote = id => {
-        const newNote = notes.find((elem, index) => index === id);
-        setNotes(newNote);
+    const removeAll = () =>{
+        setNotes([]);
     }
 
 
     useEffect(()=>{
         localStorage.setItem('lists', JSON.stringify(notes));
-        // setSearchNote(notes);
     }, [notes]);
 
-    const removeAll = () =>{
-        setNotes([]);
-    }
+  
 
     return (
         <div className='main-container'>
@@ -64,7 +56,7 @@ const CreateNote = () => {
                 <SearchField />
 
                 <div className='create-note'>
-                    <h1>Create notes</h1>
+                    <h1 className='my-text'>Create notes</h1>
                     <div>
                         {show && show ? "" : <button onClick={handleCreate} className='createBtn'>Create <sup>+</sup></button>}
                         {show && show ? <button onClick={handleClose} className='createBtn'>Close</button>: ''}
@@ -73,7 +65,7 @@ const CreateNote = () => {
 
                 {show && show ? <AddNote handleInputNote={handleInputNote} addNote={addNote} setAddNote={setAddNote} /> : ''}
                 
-                <MyNote editNote={editNote} setNotes={setNotes}  notes={notes} removeAll={removeAll} />
+                <MyNote setNotes={setNotes}  notes={notes} removeAll={removeAll} />
 
             </div>
         </div>

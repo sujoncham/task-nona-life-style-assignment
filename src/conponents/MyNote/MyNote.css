@@ -18,6 +18,7 @@
   padding: 5px;
   background-color: #533192;
   color: #fff;
+  position: relative;
 }
 
 .noteBtn {
@@ -34,6 +35,21 @@
   color: #533192;
 }
 
+.my-text {
+  font-size: 20px;
+  font-weight: 800;
+}
+.note-header {
+  text-align: center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #533192;
+}
+
 .clearBtn {
   background-color: #533192;
   padding: 5px;
@@ -41,8 +57,21 @@
   border-radius: 8px;
   transition: all 0.3s;
   cursor: pointer;
+  color: #fff;
 }
 .clearBtn:hover {
   background-color: #fff;
   border: 1px solid #533192;
+  color: #000;
+}
+
+.buttonGap {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  left: 30%;
+  bottom: 20px;
+  text-align: center;
 }

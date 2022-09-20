@@ -16,8 +16,9 @@ const NoteField = ({addNote, handleInputNote, setAddNote}) => {
                 placeholder='write something here'
                 onChange={(e)=>setAddNote(e.target.value)}
                 ></textarea>
-                <br />
+                <div>
                 <button onClick={handleInputNote} className='add-note'>add note</button>
+                </div>
             </div>
         </div>
     );

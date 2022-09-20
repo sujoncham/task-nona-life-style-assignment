@@ -8,8 +8,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Search Note!</h1>
-      
       <CreateNote />
     </div>
   );
